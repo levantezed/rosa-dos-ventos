@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rosa dos Ventos — Blog de Geografia</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="topo-in">
+      <div class="marca">
+        <h1>Rosa dos Ventos</h1>
+        <p>Blog de Geografia · por Davi Levanteze</p>
+      </div>
+      <div class="acoes">
+        <button id="btn-entrar" class="btn btn-sec">Entrar</button>
+        <button id="btn-sair" class="btn btn-sec" hidden>Sair</button>
+        <button id="btn-novo" class="btn btn-pri" hidden>Adicionar conteúdo</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="miolo">
+    <input id="busca" class="busca" type="search" placeholder="Buscar por título ou palavra-chave" aria-label="Buscar publicações">
+    <p id="status" class="status" role="status"></p>
+    <section id="grade" class="grade"></section>
+  </main>
+
+  <footer class="rodape">© <span id="ano"></span> Rosa dos Ventos · Davi Levanteze</footer>
+
+  <dialog id="dlg-post" class="dlg dlg-largo">
+    <article id="post-aberto"></article>
+  </dialog>
+
+  <dialog id="dlg-form" class="dlg">
+    <form id="form" autocomplete="off">
+      <h2 id="form-titulo">Adicionar conteúdo</h2>
+      <label>Título
+        <input name="title" required maxlength="200">
+      </label>
+      <label>Texto
+        <textarea name="content" rows="10" required></textarea>
+      </label>
+      <label>Imagem (opcional)
+        <input name="image" type="file" accept="image/jpeg,image/png,image/webp,image/gif">
+      </label>
+      <div id="img-atual" class="img-atual" hidden>
+        <img alt="" id="img-atual-prev">
+        <label class="check"><input type="checkbox" id="remover-img"> Remover imagem atual</label>
+      </div>
+      <label>Palavras-chave
+        <input name="keywords" placeholder="relevo, clima, hidrografia">
+      </label>
+      <p id="form-erro" class="erro" role="alert"></p>
+      <div class="linha-btn">
+        <button type="button" class="btn btn-sec" data-fechar>Cancelar</button>
+        <button type="submit" class="btn btn-pri" id="form-ok">Publicar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="dlg-login" class="dlg dlg-estreito">
+    <form id="form-login">
+      <h2>Entrar como administrador</h2>
+      <label>Senha
+        <input name="password" type="password" required autocomplete="current-password">
+      </label>
+      <p id="login-erro" class="erro" role="alert"></p>
+      <div class="linha-btn">
+        <button type="button" class="btn btn-sec" data-fechar>Cancelar</button>
+        <button type="submit" class="btn btn-pri">Entrar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="dlg-excluir" class="dlg dlg-estreito">
+    <h2>Excluir publicação?</h2>
+    <p>Esta ação não pode ser desfeita.</p>
+    <div class="linha-btn">
+      <button class="btn btn-sec" data-fechar>Cancelar</button>
+      <button class="btn btn-perigo" id="confirma-excluir">Excluir</button>
+    </div>
+  </dialog>
+
+  <script src="/app.js"></script>
+</body>
+</html>
